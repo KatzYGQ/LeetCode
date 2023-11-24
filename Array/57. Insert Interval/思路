@@ -1,1 +1,16 @@
 
+首先，我们根据newInterval对intervals的每一个子数组进行比较
+具体是: 从intervals的第一个子数组开始，比较子数组[1]和newInterval[0],如果 子数组[1]小于newInterval[0],那么我们就没有必要合并它们.
+一旦这个条件不满足，那么也就意味着我们需要合并了.
+我们创建一个可以储存整数数组的List名字是mergeArray，然后直接把不需要合并的子数组放进去（小于).
+
+当我们合并时
+
+我们创建2个变量 lowVal 和highVal
+lowVal是获取合并的时候的最小区间值(默认为newInterval[0])
+highVal是获取合并的时候最大区间值(默认为newInterval[1])
+这时候我们比较和newINterval重合的子数组， 将子数组[0]和lowVal做比较来获取最小区间值 以及将子数组[1]和highVal做比较来获取最大区间值。
+什么情况下一直更新lowVal和highVal呢？ 只要当子数组的[0] <=newInterval[1]，就一直更新下去.
+
+当这个条件结束后，我们就可以创建一个新的数组放入到mergeArray,把lowVal作为第一个元素,highVal作为第二个元素.
+然后如果index还没有遍历完整个intervals，那么就把接下来没遍历的直接放入到mergeArray里然后返回就完成了
