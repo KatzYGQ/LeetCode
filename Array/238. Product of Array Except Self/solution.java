@@ -12,6 +12,7 @@ class Solution {
         }
         //后缀乘积的最后一位数也是1，因为右边没有数字
         int suffixLast=1;
+        
         for(int i=nums.length-1; i>=0;i--){
             //计算后缀乘积
             //如果是最后一位，那么suffixLast就是1
