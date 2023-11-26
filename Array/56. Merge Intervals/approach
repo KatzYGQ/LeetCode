@@ -1,0 +1,24 @@
+这段Java代码定义了一个名为 Solution 的类，其中包含一个方法 merge。这个方法的作用是合并给定数组 intervals 中重叠的区间，并返回一个包含所有非重叠区间的数组。下面是该方法的详细解释：
+
+1.排序区间
+Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+这行代码使用 Arrays.sort 方法对区间进行排序，依据是每个区间的起始值 a[0]。这样做可以确保所有区间都按照它们的起始点升序排列，这对于接下来的合并操作是必要的。
+
+2.初始化一个列表来存储合并后的区间
+List<int[]> ans = new ArrayList<>();
+创建一个新的列表 ans 来存储合并后的区间。
+
+3.遍历排序后的区间
+for (int[] interval : intervals) { ... }
+使用增强型for循环遍历每个区间。
+
+4.检查并合并区间
+在循环内部，代码检查当前遍历到的区间 interval 是否与列表 ans 中最后一个区间重叠。
+if (ans.isEmpty() || interval[0] > ans.get(ans.size() - 1)[1]) { ans.add(interval); }
+如果 ans 是空的，或者 interval 的起始点大于 ans 中最后一个区间的结束点，则当前区间与 ans 中的任何区间都不重叠，可以直接添加到 ans 中。
+else { ans.get(ans.size() - 1)[1] = Math.max(interval[1], ans.get(ans.size() - 1)[1]); }
+如果存在重叠（即上述条件不成立），则更新 ans 中最后一个区间的结束点为当前区间和最后一个区间结束点的较大值。
+
+5.返回合并后的区间
+return ans.toArray(new int[ans.size()][]);
+将列表 ans 转换为二维数组并返回。这是必要的，因为方法的返回类型是 int[][]。
