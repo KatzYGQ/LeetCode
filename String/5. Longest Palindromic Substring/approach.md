@@ -1,4 +1,5 @@
-# Longest Palindromic Substring in Java
+# Longest Palindromic Substring in Java(Brute Solution)
+#Another solutions: Expand Around Center,Dynamic Programming,Manacher's Algorithm
 
 ## Problem Statement
 Given a string `s`, the objective is to find the longest palindromic substring in `s`.
