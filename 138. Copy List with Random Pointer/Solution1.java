@@ -1,3 +1,6 @@
+//哈市表解法
+
+
 class Solution {
     public Node copyRandomList(Node head) {
         if(head == null) return null;
