@@ -1,22 +1,16 @@
 class Solution {
     public int[] plusOne(int[] digits) {
-        StringBuilder sb=new StringBuilder();
-        for(int i=0; i< digits.length;i++){
-            sb.append(digits[i]);
-        }
+        for (int i = digits.length - 1; i >= 0; i--) {
+	if (digits[i] < 9) {
+		digits[i]++;
+		return digits;
+	}
+	digits[i] = 0;
+}
 
-        int num = Integer.parseInt(sb.toString())+1;
-
-        String resultString=String.valueOf(num);;
-
-        int[] array=new int[resultString.length()];
-
-        for(int i=0; i<resultString.length(); i++){
-            array[i]=resultString.charAt(i)-'0';
-        }
-
-        return array;
-
+    digits = new int[digits.length + 1];
+    digits[0] = 1;
+    return digits;
 
 
     }
