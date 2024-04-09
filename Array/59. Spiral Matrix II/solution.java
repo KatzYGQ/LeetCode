@@ -18,7 +18,7 @@ class Solution {
     public int[][] generateMatrix(int n) {
         int[][] nums = new int[n][n];
         int startX = 0, startY = 0;  // 每一圈的起始点
-        int offset = 1;
+        int offset = 1; //每一圈的终止位置， 所以判断的终止位置为n-offset   第一圈的offset是1，
         int count = 1;  // 矩阵中需要填写的数字
         int loop = 1; // 记录当前的圈数
         int i, j; // j 代表列, i 代表行;
